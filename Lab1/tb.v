@@ -8,16 +8,14 @@ module tb;
     wire [3:0] seg;
 
     main uut (
-        .x(x),
-        .y(y),
-        .sel(sel),
-        .LED(LED),
-        .seg(seg),
+        x,
+        y,
+        sel,
+        LED,
+        seg
     );
 
     initial begin
-        $monitor("x=%d, y=%d, sel=%d, LED=%h, seg1=%h, seg2=%h", x, y, sel, LED, seg1, seg2);
-
         // Testcase 1: X_1=3'b110, Y_1=3'b001
         for (sel_num = 0; sel_num < 4; sel_num = sel_num + 1) begin
             x = 3'b110;
