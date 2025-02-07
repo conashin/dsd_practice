@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module main(x, y, sel, out);
-    input [2:0] x, y; // Input 4-bit x and y
+    input [2:0] x, y; // Input 3-bit x and y
     input [1:0] sel; // Input 2-bit selection
     
     output reg [7:0] LED; // LED output
