@@ -9,7 +9,7 @@ module hw1(a, b, c, sel, O1);
     // D0 sig
     xor D0L0(Net1, a, b);
     //xor D0(Net2, Net1, c);
-    assign  = Net1 ^ c;
+    assign D0 = Net1 ^ c;
 
     // D1 sig
     or D1L0s0(Net3, a, c);
