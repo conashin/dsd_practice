@@ -3,6 +3,14 @@ module tb;
     reg a, b, c, sel;
     wire O1;
 
+    hw1 uut(
+        .a(a),
+        .b(b),
+        .c(c),
+        .sel(sel),
+        .O1(O1)
+    );
+
     initial begin
         {a,b,c,sel} = 4'b0000; #50;
         {a,b,c,sel} = 4'b1000; #50;
