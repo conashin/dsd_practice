@@ -16,7 +16,7 @@ module hw1(a, b, c, sel, O1);
     and D1L0(Net4, Net3, b);
     and D1L1(Net5, a, c);
     //and D1(Net6, Net5, Net4);
-    assign D1 = Net5 & Net4;
+    assign D1 = Net5 or Net4;
 
     // mux select d0 or d1
     assign O1 = (sel) ? D1 : D0;
