@@ -51,10 +51,10 @@ module hw2 (CLK, Reset, Load, inState, RO);
 
     // Assign Net
     assign Net[0] = RO[0];
-    xor x1(Net[1], RO[1], Net[0]);
-    xor x2(Net[2], RO[2], Net[0]);
+    assign Net[1] = RO[1] ^ Net[0]// xor x1(Net[1], RO[1], Net[0]);
+    assign Net[2] = RO[2] ^ Net[0]// xor x2(Net[2], RO[2], Net[0]);
     assign Net[3] = RO[3];
-    xor x4(Net[4], RO[4], Net[0]);
+    assign Net[4] = RO[4] ^ Net[0]// xor x4(Net[4], RO[4], Net[0]);
 endmodule
 
 

@@ -27,6 +27,7 @@ module tb;
         Load = 1;
         #10
         Load = 0;
+        #500;
     end
 
     always begin
