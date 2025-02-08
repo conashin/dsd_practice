@@ -17,12 +17,16 @@ module tb;
         CLK = 1;
         Reset = 0;
         Load = 0;
-        inState = 5'b00010;
+        inState = 2;
         #100;
-        #5 Reset = 1;
-        #10 Reset = 0;
-        #10 Load = 1;
-        #10 Load = 0;
+        #5
+        Reset = 1;
+        #10
+        Reset = 0;
+        #10
+        Load = 1;
+        #10
+        Load = 0;
     end
 
     always begin
