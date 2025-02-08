@@ -38,18 +38,18 @@ module dff_muxi2o1 (clk, rst, load, D0, D1, out);
             out <= mux_dffD;
 endmodule
 
-module hw2 (CLK, Reset, L, inState, RO);
-    input CLK, Reset, L;
+module hw2 (CLK, Reset, Load, inState, RO);
+    input CLK, Reset, Load;
     input [4:0] inState;
     output [4:0] RO;
     wire [4:0] Net;
 
     // DFF with MUX blocks
-    dff_muxi2o1 R0 (CLK, Reset, L, inState[0], Net[1], RO[0]);
-    dff_muxi2o1 R1 (CLK, Reset, L, inState[1], Net[2], RO[1]);
-    dff_muxi2o1 R2 (CLK, Reset, L, inState[2], Net[3], RO[2]);
-    dff_muxi2o1 R3 (CLK, Reset, L, inState[3], Net[4], RO[3]);
-    dff_muxi2o1 R4 (CLK, Reset, L, inState[4], Net[0], RO[4]);
+    dff_muxi2o1 R0 (CLK, Reset, Load, inState[0], Net[1], RO[0]);
+    dff_muxi2o1 R1 (CLK, Reset, Load, inState[1], Net[2], RO[1]);
+    dff_muxi2o1 R2 (CLK, Reset, Load, inState[2], Net[3], RO[2]);
+    dff_muxi2o1 R3 (CLK, Reset, Load, inState[3], Net[4], RO[3]);
+    dff_muxi2o1 R4 (CLK, Reset, Load, inState[4], Net[0], RO[4]);
 
     // Assign Net
     assign RO[0] = Net[0];
