@@ -28,6 +28,7 @@ module tb;
         #10
         Load = 0;
         #500;
+        $finish;
     end
 
     always begin
