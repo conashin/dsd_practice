@@ -27,13 +27,7 @@ module dff_muxi2o1 (clk, rst, load, D0, D1, out);
     wire mux_dffD;
     
     // mux part
-    always @(*) begin
-        case (load)
-            1'b0: mux_dffD = D1;
-            1'b1: mux_dffD = D0; // Load inState
-        endcase
-    end
-    
+    mux_dffD = (load) ? D0 : D1;
     // dff part
     always @(posedge clk or posedge rst)
         if (rst)
