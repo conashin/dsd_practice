@@ -12,10 +12,12 @@ endmodule
 
 // mux 2 to 1
 module mux2to1 (input load, input muxD0, input muxD1, output muxO);
-    case (load)
-        1'b0: muxO = muxD1;
-        1'b1: muxO = muxD0; // Load inState
-    endcase
+    always @(*) begin
+        case (load)
+            1'b0: muxO = muxD1;
+            1'b1: muxO = muxD0; // Load inState
+        endcase
+    end
 endmodule
 */
 
@@ -25,10 +27,12 @@ module dff_muxi2o1 (clk, rst, load, D0, D1, out);
     wire mux_dffD;
     
     // mux part
-    case (load)
-        1'b0: mux_dffD = D1;
-        1'b1: mux_dffD = D0; // Load inState
-    endcase
+    always @(*) begin
+        case (load)
+            1'b0: mux_dffD = D1;
+            1'b1: mux_dffD = D0; // Load inState
+        endcase
+    end
     
     // dff part
     always @(posedge clk or posedge rst)
