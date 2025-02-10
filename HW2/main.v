@@ -41,15 +41,16 @@ module hw2 (CLK, Reset, Load, inState, RO);
     input [4:0] inState;
     output [4:0] RO;
     wire [4:0] Net;
+    wire [4:0] NinState;
 
-    inState= ~inState; // invert inState
+    assign NinState= ~inState; // invert inState
 
     // DFF with MUX blocks
-    dff_muxi2o1 R0 (CLK, Reset, Load, inState[0], Net[1], RO[0]);
-    dff_muxi2o1 R1 (CLK, Reset, Load, inState[1], Net[2], RO[1]);
-    dff_muxi2o1 R2 (CLK, Reset, Load, inState[2], Net[3], RO[2]);
-    dff_muxi2o1 R3 (CLK, Reset, Load, inState[3], Net[4], RO[3]);
-    dff_muxi2o1 R4 (CLK, Reset, Load, inState[4], Net[0], RO[4]);
+    dff_muxi2o1 R0 (CLK, Reset, Load, NinState[0], Net[1], RO[0]);
+    dff_muxi2o1 R1 (CLK, Reset, Load, NinState[1], Net[2], RO[1]);
+    dff_muxi2o1 R2 (CLK, Reset, Load, NinState[2], Net[3], RO[2]);
+    dff_muxi2o1 R3 (CLK, Reset, Load, NinState[3], Net[4], RO[3]);
+    dff_muxi2o1 R4 (CLK, Reset, Load, NinState[4], Net[0], RO[4]);
 
     // Assign Net
     assign Net[0] = RO[0];
