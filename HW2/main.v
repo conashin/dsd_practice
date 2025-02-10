@@ -27,7 +27,7 @@ module dff_muxi2o1 (clk, rst, load, D0, D1, out);
     wire mux_dffD;
     
     // mux part
-    assign mux_dffD = (load) ? D0 : D1;
+    assign mux_dffD <= (load) ? D0 : D1;
     // dff part
     always @(posedge clk or posedge rst)
         if (rst)
@@ -41,6 +41,8 @@ module hw2 (CLK, Reset, Load, inState, RO);
     input [4:0] inState;
     output [4:0] RO;
     wire [4:0] Net;
+
+    inState= ~inState; // invert inState
 
     // DFF with MUX blocks
     dff_muxi2o1 R0 (CLK, Reset, Load, inState[0], Net[1], RO[0]);
