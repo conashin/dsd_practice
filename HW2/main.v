@@ -27,7 +27,7 @@ module dff_muxi2o1 (clk, rst, load, D0, D1, out);
     wire mux_dffD;
     
     // mux part
-    assign mux_dffD <= (load) ? D0 : D1;
+    assign mux_dffD = (load) ? D0 : D1;
     // dff part
     always @(posedge clk or posedge rst)
         if (rst)
